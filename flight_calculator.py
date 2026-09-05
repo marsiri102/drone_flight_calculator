@@ -67,4 +67,5 @@ def flight_time_table(max_weight_grams, step_grams):
 
     return table
 
-    
+#Testing the function with a payload weight of 2000 grams,The expected output is 0 minutes of flight time.
+print(calculate_flight_time(2000))
