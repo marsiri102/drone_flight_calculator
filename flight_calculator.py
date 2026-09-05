@@ -12,14 +12,31 @@ def calculate_flight_time(weight_grams):
         ValueError: If weight_grams is negative.
     """
     if weight_grams < 0:
+
+    #copilot sugggested: raise ValueError("weight_grams must be non-negative (got a negative value).") ACCEPTED.
+
         raise ValueError("weight_grams must be non-negative (got a negative value).")
 
     flight_time = 180 - 0.1 * weight_grams
+
+    #copilot suggested: if flight_time < 0: ACCEPTED.
 
     if flight_time < 0:
         return 0
 
     return flight_time
+
+    #copilot sugggested: 
+    #def flight_time_table(max_weight_grams, step_grams):
+
+	#if max_weight_grams < 0:
+	#raise ValueError("max_weight_grams must be non-negative")
+	#if step_grams <= 0:
+	#raise ValueError("step_grams must be greater than zero")
+
+	#return list(range(0, max_weight_grams + 1, step_grams))
+    #REJECTED.
+    
 
 def flight_time_table(max_weight_grams, step_grams):
     """
@@ -33,12 +50,21 @@ def flight_time_table(max_weight_grams, step_grams):
             list[tuple[float, float]]: (weight, flight_time) pairs, lightest to heaviest.
     """
     if step_grams <= 0:
+
+    #copilot sugggested: raise ValueError("step_grams must be greater than 0.") ACCEPTED.
+
         raise ValueError("step_grams must be greater than 0.")
 
     table = []
     weight = 0
+
     while weight <= max_weight_grams:
+
+    #copilot suggested: while weight > 0: print("Current weight:", weight) weight -= 1 EDITED.
+        
         table.append((weight, calculate_flight_time(weight)))
         weight += step_grams
 
     return table
+
+    
