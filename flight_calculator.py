@@ -20,3 +20,16 @@ def calculate_flight_time(weight_grams):
         return 0
 
     return flight_time
+
+def flight_time_table(max_weight_grams, step_grams):
+    
+    if step_grams <= 0:
+        raise ValueError("step_grams must be greater than 0.")
+
+    table = []
+    weight = 0
+    while weight <= max_weight_grams:
+        table.append((weight, calculate_flight_time(weight)))
+        weight += step_grams
+
+    return table
